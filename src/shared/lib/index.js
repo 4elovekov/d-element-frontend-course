@@ -1,11 +1,11 @@
-export const getPage = ({ body = ``, title = ``, meta = [] }) => {
+import { metaTag } from "./meta.js";
+
+export const getPage = ({ body = ``, title = ``, meta  = `${metaTag}` }) => {
   return `
     <!DOCTYPE html>
     <html lang="ru">
       <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        ${meta.map(item => item())}
+        ${meta}
         <title>${title}</title>
         <script src="/src/app/App.js" defer type="module"></script>
       </head>

@@ -1,6 +1,8 @@
 import { getPage } from "../../shared/lib/index.js";
+import { metaTag } from "../../shared/lib/meta.js";
 
 export default () => {
+
     return getPage({
         title: "О нас",
         body: `
@@ -15,6 +17,7 @@ export default () => {
                     </li>
                 </ul>
             </nav>
-        `
+        `,
+        meta: metaTag
     })
 }
