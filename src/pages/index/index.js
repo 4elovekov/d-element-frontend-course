@@ -1,6 +1,6 @@
 import { getPage } from "../../shared/lib/index.js";
 import { Button } from "../../shared/ui/button/index.js";
-// eslint-disable-next-line no-unused-vars
+import { Input } from "../../shared/ui/input/index.js";
 import { metaTag } from "../../shared/lib/meta.js";
 
 export default () => {
@@ -9,17 +9,29 @@ export default () => {
         title: "Главная",
         body: `
             <h1>Главная</h1>
-            
-            ${Button({
-                label: "Click",
-                extraAttrs: {
-                    "id": "btn"
-                },
-                extraClasses: {
-                    hidden: false,
-                    disabled: true,
-                }
-            })}
+
+            <div class="form">
+                <h2 class="name">Введите Ваше имя</h2>
+                ${Input({
+                    extraAttrs: {
+                        "type": "text",
+                        "id": "input",
+                        "required minlength": "4",
+                        "maxlength": "15"
+                    }
+                })}
+                
+                ${Button({
+                    label: "Click",
+                    extraAttrs: {
+                        "id": "btn"
+                    },
+                    extraClasses: {
+                        hidden: false,
+                        disabled: true,
+                    }
+                })}
+            </div>
 
             <nav>
                 <ul>
