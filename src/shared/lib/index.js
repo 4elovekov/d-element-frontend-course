@@ -22,7 +22,6 @@ export const commonComponentProps = {
   extraAttrs: {},
   children: ``,
   getCN: (block = "", elem = "", mod = {}) => {
-      console.debug(block, elem, mod)
       return withNaming({
           n: "",
           e: "__",
