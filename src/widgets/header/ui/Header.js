@@ -13,7 +13,7 @@ export function Header(props) {
     const getClassName = (elem, mod) => getCN(baseClass, elem, mod)
 
     return `
-            <header  class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-header="" >
+            <header class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-header="" >
             <div class="${getClassName("logo")}">
                 ${Logo({
                     imageSrc: "./images/logo.svg",

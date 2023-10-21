@@ -3,6 +3,7 @@ import { Button } from "../../shared/ui/button/index.js";
 import { Input } from "../../shared/ui/input/index.js";
 import { metaTag } from "../../shared/lib/meta.js";
 import { Header } from "../../widgets/header/index.js";
+import { Footer } from "../../widgets/footer/index.js";
 
 export default () => {
 
@@ -46,6 +47,7 @@ export default () => {
                     </li>
                 </ul>
             </nav>
+            ${Footer()}
         `,
         meta: metaTag
     })
