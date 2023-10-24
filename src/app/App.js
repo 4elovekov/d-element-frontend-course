@@ -1,9 +1,10 @@
-import "./style.pcss"
 import HeaderModel from "../widgets/header/model"
 
 const runApp = async () => {
-    const runWidgets = () => {
+    const runWidgets = async () => {
         new HeaderModel()
+        await Promise.all(Object.keys(import.meta.glob("../**/*.pcss", { "query": "?inline" })).map(path =>
+        import(`${path}`).then((module) => module?.default ?? module)))
     }
     switch (process.env.NODE_ENV) {
         case "development":
