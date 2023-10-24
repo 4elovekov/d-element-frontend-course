@@ -51,4 +51,20 @@ export const handlers = [
       })
     )
   }),
+
+  rest.post("/api/add-to-cart", (req, res, ctx) => {
+    return res(
+      ctx.status(200), ctx.json({
+        "isSuccess": true,
+      })
+    )
+  }),
+
+  rest.delete("/api/remove-from-cart", (req, res, ctx) => {
+    return res(
+      ctx.status(200), ctx.json({
+        "isSuccess": true,
+      })
+    )
+  }),
 ]
