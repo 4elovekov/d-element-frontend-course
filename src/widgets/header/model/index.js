@@ -5,6 +5,8 @@ export default class HeaderModel {
             return HeaderModel.instance;
         }
 
+        this.node = document.querySelector("[data-js-header]");
+
         HeaderModel.instance = this;
         return this;
     }
