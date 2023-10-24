@@ -4,9 +4,9 @@ import { metaTag } from "../../shared/lib/meta.js";
 export default () => {
 
     return getPage({
-        title: "О нас",
+        title: "Каталог",
         body: `
-            <h1>О нас</h1>
+            <h1>Каталог</h1>
             <nav>
                 <ul>
                     <li>

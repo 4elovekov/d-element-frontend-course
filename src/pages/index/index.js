@@ -45,6 +45,9 @@ export default () => {
                     <li>
                         <a href="/about.html">О Нас</a>
                     </li>
+                    <li>
+                        <a href="/catalog.html">Каталог</a>
+                    </li>
                 </ul>
             </nav>
             ${Footer()}

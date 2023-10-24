@@ -1,10 +1,9 @@
 import HeaderModel from "../widgets/header/model"
 
 const runApp = async () => {
-    const runWidgets = async () => {
+    const runWidgets = async() => {
         new HeaderModel()
-        await Promise.all(Object.keys(import.meta.glob("../**/*.pcss", { "query": "?inline" })).map(path =>
-        import(`${path}`).then((module) => module?.default ?? module)))
+        await Promise.all(Object.keys(import.meta.glob("../**/*.pcss", { "query": "?inline" })).map(path => import(/* @vite-ignore */`${path}`).then((module) => module?.default ?? module)))
     }
     switch (process.env.NODE_ENV) {
         case "development":
