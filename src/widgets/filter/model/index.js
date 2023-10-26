@@ -2,10 +2,10 @@ export default class FilterModel {
 
     static selectors = {
         instanceSelector: "[data-js-filter]",
-        btnSelector: "[data-js-search-param]"
-    }
+        btnSelectors: "data-js-search-param"
+    };
 
-    static instance = null;
+    static instance = null
     
     constructor() {
         if (FilterModel.instance) {
@@ -14,12 +14,12 @@ export default class FilterModel {
 
 
         FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
-        this.btns = Array.from(document.querySelectorAll(FilterModel.selectors.btnSelector));
+        this.btns = Array.from(document.querySelectorAll(`[${FilterModel.selectors.btnSelectors}]`))
+        this.init()
     }
 
-    getSearchParam(btn) {
-        console.debug(btn);
-        return btn.getAttribute(FilterModel.selectors.btnSelector)
+    getSearchParam (btn) {
+        return btn.getAttribute(FilterModel.selectors.btnSelectors)
     }
 
     init() {
@@ -27,4 +27,5 @@ export default class FilterModel {
             console.debug(this.getSearchParam(btn))
         })
     }
+
 }
