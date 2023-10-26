@@ -1,5 +1,20 @@
 import { getPage } from "../../shared/lib/index.js";
-import { metaTag } from "../../shared/lib/meta.js";
+import { Filter } from "../../widgets/filter/index.js";
+
+const cat = [
+    {
+        name: "Все курсы",
+        searchParam: "all"
+    },
+    {
+        name: "Фронтенд",
+        searchParam: "front"
+    },
+    {
+        name: "Бэкенд",
+        searchParam: "back"
+    }
+]
 
 export default () => {
 
@@ -20,7 +35,7 @@ export default () => {
                     </li>
                 </ul>
             </nav>
+            ${Filter({ category: cat })}
         `,
-        meta: metaTag
     })
 }
