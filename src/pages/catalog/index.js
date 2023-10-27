@@ -4,15 +4,18 @@ import { Filter } from "../../widgets/filter/index.js";
 const cat = [
     {
         name: "Все курсы",
-        searchParam: "all"
+        searchParam: "all",
+        isChecked: true
     },
     {
         name: "Фронтенд",
-        searchParam: "front"
+        searchParam: "front",
+        isChecked: false
     },
     {
         name: "Бэкенд",
-        searchParam: "back"
+        searchParam: "back",
+        isChecked: false
     }
 ]
 

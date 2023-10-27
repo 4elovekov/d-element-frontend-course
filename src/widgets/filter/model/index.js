@@ -2,7 +2,7 @@ export default class FilterModel {
 
     static selectors = {
         instanceSelector: "[data-js-filter]",
-        btnSelectors: "data-js-search-param"
+        checkboxSelectors: "data-js-search-param"
     };
 
     static instance = null
@@ -14,17 +14,22 @@ export default class FilterModel {
 
 
         FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
-        this.btns = Array.from(document.querySelectorAll(`[${FilterModel.selectors.btnSelectors}]`))
+        this.inputs = Array.from(document.querySelectorAll(`[${FilterModel.selectors.checkboxSelectors}]`))
+        this.url = new URL(window.location.href)
         this.init()
     }
 
     getSearchParam (btn) {
-        return btn.getAttribute(FilterModel.selectors.btnSelectors)
+        return btn.getAttribute(FilterModel.selectors.checkboxSelectors)
+    }
+
+    checkboxChanged(e) {
+        console.debug(this.inputs)
     }
 
     init() {
-        this.btns.forEach(btn => {
-            console.debug(this.getSearchParam(btn))
+        this.inputs.forEach(input => {
+            input.addEventListener("change", this.checkboxChanged)
         })
     }
 
