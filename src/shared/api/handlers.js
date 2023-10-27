@@ -1,6 +1,16 @@
 import { rest } from "msw"
+//import { goods } from "./goods"
+import { Filtering } from "./filtering"
 
 export const handlers = [
+
+  rest.get("/catalog.html", (req, res, ctx) => {
+    return res(
+      ctx.status(200), ctx.json(Filtering(true))
+    )
+  }),
+
+
   rest.post("/login", (req, res, ctx) => {
     // Persist user's authentication in the session
     sessionStorage.setItem("is-authenticated", "true")

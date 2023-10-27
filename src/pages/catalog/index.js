@@ -8,13 +8,23 @@ const cat = [
         isChecked: true
     },
     {
-        name: "Фронтенд",
+        name: "Frontend-разработка",
         searchParam: "front",
         isChecked: false
     },
     {
-        name: "Бэкенд",
+        name: "Backend-разработка",
         searchParam: "back",
+        isChecked: false
+    },
+    {
+        name: "Мобильная разработка",
+        searchParam: "mobile",
+        isChecked: false
+    },
+    {
+        name: "Управление разработкой",
+        searchParam: "manage",
         isChecked: false
     }
 ]

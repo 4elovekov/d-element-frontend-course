@@ -15,19 +15,38 @@ export default class FilterModel {
 
         FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
         this.inputs = Array.from(document.querySelectorAll(`[${FilterModel.selectors.checkboxSelectors}]`))
-        this.url = new URL(window.location.href)
+        // this.url = new URL(window.location.href)
+        this.url = new URL(window.location.href);
+        this.params = new URLSearchParams(this.url.search);
+        console.debug(this.url)
+        console.debug(this.params.toString())
         this.init()
     }
 
-    getSearchParam (btn) {
-        return btn.getAttribute(FilterModel.selectors.checkboxSelectors)
+    getSearchParam (checkbox) {
+        return checkbox.getAttribute(FilterModel.selectors.checkboxSelectors)
     }
 
-    checkboxChanged(e) {
-        console.debug(this.inputs)
+    checkboxChanged() {
+        this.inputs.forEach(input => {
+            if (input.checked) {
+                input.setAttribute("checked", "")
+                this.params.set(`${input.value}`, true);
+            } else {
+                input.removeAttribute("checked")
+                this.params.delete(`${input.value}`)
+            }
+            // input.checked ? input.setAttribute("checked", "") : input.removeAttribute("checked")
+            console.debug(this.params.toString())
+            console.debug(input)
+        })
+        console.debug(this.url)
+        fetch (this.url)
+            .then(response => console.debug(response.json()))
     }
 
     init() {
+        this.checkboxChanged = this.checkboxChanged.bind(this);
         this.inputs.forEach(input => {
             input.addEventListener("change", this.checkboxChanged)
         })
