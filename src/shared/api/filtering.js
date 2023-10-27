@@ -1,11 +1,20 @@
 import { goods } from "./goods";
 
-export function Filtering (category) {
-    if (category) {
-        console.debug("goods[0]: ", goods[0])
-        return goods[0]
-    } else {
-        return null
-    }
-    
+export function Filtering (params) {
+    params = params.slice(1).split("&");
+    let result = []
+
+    goods.forEach((good) => {
+        let flag = true
+        params.forEach((param) => {
+            if ( !((param.split("=")[1] == "true") && (good.data.category.includes(param.split("=")[0]))) ) {
+                flag = false;
+            }
+        })
+        if (flag) {
+            result.push(good.data)
+        }
+    })
+
+    return result;
 }

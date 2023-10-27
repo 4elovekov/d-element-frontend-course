@@ -45,8 +45,6 @@ export default class FilterModel {
         // this.new_url = new URL(`${this.url.origin}${this.url.pathname}?${this.params}`);
         // console.debug("new url: ", this.new_url)
 
-        console.debug(this.url.stringParams())
-        console.debug(this.url.stringUrl())
         fetch (this.url.stringUrl())
             .then(response => console.debug(response.json()))
     }
