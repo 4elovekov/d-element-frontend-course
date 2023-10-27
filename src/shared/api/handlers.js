@@ -6,7 +6,6 @@ export const handlers = [
 
   rest.get("/catalog.html", (req, res, ctx) => {
     const queryParams = new URL(req.url).search.toString();
-    console.debug("params in msw: ", queryParams)
     return res(
       ctx.status(200), ctx.json(Filtering(queryParams))
     )

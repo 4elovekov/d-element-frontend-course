@@ -20,8 +20,8 @@ export function Header(props) {
                 })}
             </div>
             <div class="${getClassName("nav")}">
-            <a href="/about.html">Главная</a>
-            <a href="/about.html">Католог</a>
+            <a href="/">Главная</a>
+            <a href="/catalog.html">Католог</a>
             <a href="/about.html">Корзина</a>
             </div>
             </header>

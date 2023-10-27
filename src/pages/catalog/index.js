@@ -1,5 +1,6 @@
 import { getPage } from "../../shared/lib/index.js";
 import { Filter } from "../../widgets/filter/index.js";
+import { Header } from "../../widgets/header/index.js"
 
 const cat = [
     {
@@ -34,6 +35,7 @@ export default () => {
     return getPage({
         title: "Каталог",
         body: `
+            ${Header()}
             <h1>Каталог</h1>
             <nav>
                 <ul>

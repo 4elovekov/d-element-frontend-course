@@ -5,7 +5,7 @@ export const goods = [
             "label": "Бесплатный офлайн курс",
             "productName": "«Frontend-разработчик»",
             "category": [ "front", "all" ],
-            "imageSrc": "/images/course-image.png",
+            "imageSrc": "./images/Rectangle 3108.png",
             "registration": {
                     "startDate": "18082023",
                     "endDate": "24092023"
@@ -21,7 +21,7 @@ export const goods = [
             "label": "Бесплатный офлайн курс",
             "productName": "«Backend-разработчик»",
             "category": [ "back", "all" ],
-            "imageSrc": "/images/course-image.png",
+            "imageSrc": "./images/Rectangle 3108.png",
             "registration": {
                     "startDate": "18082023",
                     "endDate": "24092023"
@@ -37,7 +37,7 @@ export const goods = [
             "label": "Бесплатный офлайн курс",
             "productName": "«Project manager»",
             "category": [ "manage", "all" ],
-            "imageSrc": "/images/course-image.png",
+            "imageSrc": "./images/Rectangle 3108.png",
             "registration": {
                     "startDate": "18082023",
                     "endDate": "24092023"
@@ -54,7 +54,7 @@ export const goods = [
             "label": "Бесплатный офлайн курс",
             "productName": "«Мобильная разработка»",
             "category": [ "mobile", "front", "back", "all" ],
-            "imageSrc": "/images/course-image.png",
+            "imageSrc": "./images/Rectangle 3108.png",
             "registration": {
                     "startDate": "18082023",
                     "endDate": "24092023"
@@ -70,7 +70,7 @@ export const goods = [
             "label": "Бесплатный офлайн курс",
             "productName": "«Web-разработчик»",
             "category": [ "front", "back", "all" ],
-            "imageSrc": "/images/course-image.png",
+            "imageSrc": "./images/Rectangle 3108.png",
             "registration": {
                     "startDate": "18082023",
                     "endDate": "24092023"

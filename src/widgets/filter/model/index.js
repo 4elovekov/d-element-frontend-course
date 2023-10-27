@@ -1,4 +1,6 @@
 import Builder from "../../../shared/lib/builder"
+import { Card } from "../../../entities/card/index.js"
+import { AddToCart } from "../../../features/addToCart/index.js";
 
 export default class FilterModel {
 
@@ -17,13 +19,10 @@ export default class FilterModel {
 
         FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
         this.inputs = Array.from(document.querySelectorAll(`[${FilterModel.selectors.checkboxSelectors}]`))
-        // this.url = new URL(window.location.href)
-
-        // this.url = new URL(window.location.href);
-        // this.params = new URLSearchParams(this.url.search);
 
         this.url = new Builder(window.location.href);
         this.init()
+        this.inputs != false ? this.inputs[0].dispatchEvent(new Event("change")) : "" ;
     }
 
     getSearchParam (checkbox) {
@@ -39,14 +38,37 @@ export default class FilterModel {
                 input.removeAttribute("checked")
                 this.url.deleteParam(input.value)
             }
-            // input.checked ? input.setAttribute("checked", "") : input.removeAttribute("checked")
         })
 
-        // this.new_url = new URL(`${this.url.origin}${this.url.pathname}?${this.params}`);
-        // console.debug("new url: ", this.new_url)
+        fetch(this.url.stringUrl())
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.debug("data: ", data)
+            data.forEach((card) => {
+                console.debug("data.card: ", card)
+                Card({
+                    imageSrc: card.imageSrc,
+                    label: card.label,
+                    productName: card.productName,
+                    children: AddToCart({
+                        extraAttrs: {
+                            "id": "btn"
+                        },
+                        extraClasses: {
+                            hidden: false,
+                            disabled: true,
+                        }
+                    })
+                })
+            })
+            
 
-        fetch (this.url.stringUrl())
-            .then(response => console.debug(response.json()))
+        })
+        .catch(error => {
+            console.error("Произошла ошибка:", error);
+        });
     }
 
     init() {
