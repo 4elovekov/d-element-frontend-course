@@ -11,47 +11,48 @@ export default () => {
         title: "Главная",
         body: `
             ${Header()}
+            <main>
+                <div class="container">
+                    <h1>Главная</h1>
+                </div>
 
-            <div class="container">
-                <h1>Главная</h1>
-            </div>
+                <div class="form">
+                    <h2 class="name">Введите Ваше имя</h2>
+                    ${Input({
+                        extraAttrs: {
+                            "type": "text",
+                            "id": "input",
+                            "required minlength": "4",
+                            "maxlength": "15"
+                        }
+                    })}
+                    
+                    ${Button({
+                        label: "Click",
+                        extraAttrs: {
+                            "id": "btn"
+                        },
+                        extraClasses: {
+                            hidden: false,
+                            disabled: false,
+                        }
+                    })}
+                </div>
 
-            <div class="form">
-                <h2 class="name">Введите Ваше имя</h2>
-                ${Input({
-                    extraAttrs: {
-                        "type": "text",
-                        "id": "input",
-                        "required minlength": "4",
-                        "maxlength": "15"
-                    }
-                })}
-                
-                ${Button({
-                    label: "Click",
-                    extraAttrs: {
-                        "id": "btn"
-                    },
-                    extraClasses: {
-                        hidden: false,
-                        disabled: false,
-                    }
-                })}
-            </div>
-
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/">Главная</a>
-                    </li>
-                    <li>
-                        <a href="/cart.html">Корзина</a>
-                    </li>
-                    <li>
-                        <a href="/catalog.html">Каталог</a>
-                    </li>
-                </ul>
-            </nav>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/">Главная</a>
+                        </li>
+                        <li>
+                            <a href="/cart.html">Корзина</a>
+                        </li>
+                        <li>
+                            <a href="/catalog.html">Каталог</a>
+                        </li>
+                    </ul>
+                </nav>
+            </main>
             ${Footer()}
         `,
         meta: metaTag

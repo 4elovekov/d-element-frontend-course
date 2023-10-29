@@ -1,6 +1,7 @@
 import { getPage } from "../../shared/lib/index.js";
 import { Filter } from "../../widgets/filter/index.js";
-import { Header } from "../../widgets/header/index.js"
+import { Header } from "../../widgets/header/index.js";
+import { Footer } from "../../widgets/footer/index.js";
 
 const cat = [
     {
@@ -36,10 +37,13 @@ export default () => {
         title: "Каталог",
         body: `
             ${Header()}
-            <div class="container">
-            <h1>Каталог</h1>
-            </div>
-            ${Filter({ category: cat })}
+            <main>
+                <div class="container">
+                    <h1>Каталог</h1>
+                </div>
+                ${Filter({ category: cat })}
+            </main>
+            ${Footer()}
         `,
     })
 }
