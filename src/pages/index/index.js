@@ -12,7 +12,9 @@ export default () => {
         body: `
             ${Header()}
 
-            <h1>Главная</h1>
+            <div class="container">
+                <h1>Главная</h1>
+            </div>
 
             <div class="form">
                 <h2 class="name">Введите Ваше имя</h2>
@@ -43,7 +45,7 @@ export default () => {
                         <a href="/">Главная</a>
                     </li>
                     <li>
-                        <a href="/about.html">О Нас</a>
+                        <a href="/cart.html">Корзина</a>
                     </li>
                     <li>
                         <a href="/catalog.html">Каталог</a>

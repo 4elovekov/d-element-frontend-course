@@ -14,16 +14,19 @@ export function Header(props) {
 
     return `
             <header class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-header="" >
-            <div class="${getClassName("logo")}">
-                ${Logo({
-                    imageSrc: "./images/logo.svg",
-                })}
-            </div>
-            <div class="${getClassName("nav")}">
-            <a href="/">Главная</a>
-            <a href="/catalog.html">Католог</a>
-            <a href="/about.html">Корзина</a>
-            </div>
+                <div class="${getClassName("main")}">
+                    <div class="${getClassName("logo")}">
+                        ${Logo({
+                            imageSrc: "./images/logo.svg",
+                        })}
+                    </div>
+                    <div class="${getClassName("nav")}">
+                        <a href="/">ГЛАВНАЯ</a>
+                        <a href="/catalog.html">КАТАЛОГ</a>
+                        <a href="/cart.html">
+                        <img src="./images/Shopping cart.svg">Корзина</a>
+                    </div>
+                </div>
             </header>
             `
 }
