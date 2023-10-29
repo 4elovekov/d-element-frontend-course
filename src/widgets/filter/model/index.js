@@ -6,7 +6,8 @@ export default class FilterModel {
 
     static selectors = {
         instanceSelector: "[data-js-filter]",
-        checkboxSelectors: "data-js-search-param"
+        checkboxSelectors: "data-js-search-param",
+        labelSelectors: "data-js-search"
     };
 
     static instance = null
@@ -19,6 +20,7 @@ export default class FilterModel {
 
         FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
         this.inputs = Array.from(document.querySelectorAll(`[${FilterModel.selectors.checkboxSelectors}]`))
+        this.labels = Array.from(document.querySelectorAll(`[${FilterModel.selectors.labelSelectors}]`))
 
         this.url = new Builder(window.location.href);
         this.init()
@@ -27,6 +29,21 @@ export default class FilterModel {
 
     getSearchParam (checkbox) {
         return checkbox.getAttribute(FilterModel.selectors.checkboxSelectors)
+    }
+
+    changeChecked () {
+        this.inputs.forEach( (input, index) => {
+            if (input.checked) {
+                input.setAttribute("checked", "")
+                this.labels[index].setAttribute("checked", "")
+                this.url.addParam(input.value, true);
+            } else {
+                input.removeAttribute("checked")
+                this.labels[index].removeAttribute("checked")
+                this.url.deleteParam(input.value)
+            }
+        })
+
     }
 
     cardParse(cards) {
@@ -73,15 +90,7 @@ export default class FilterModel {
     }
 
     checkboxChanged() {
-        this.inputs.forEach(input => {
-            if (input.checked) {
-                input.setAttribute("checked", "")
-                this.url.addParam(input.value, true);
-            } else {
-                input.removeAttribute("checked")
-                this.url.deleteParam(input.value)
-            }
-        })
+        this.changeChecked();
 
         this.getCards(this.url.stringUrl())
             .then(data => {

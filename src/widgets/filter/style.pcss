@@ -11,6 +11,34 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+
+        label[checked] {
+            background: rgba(28, 108, 213, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 52px;
+            margin-bottom: 8px;
+            padding: 0 24px 0 24px;
+            border-radius: 100px;
+            gap: 10px;
+            background: rgba(215, 232, 255, 1);
+            color: rgba(28, 108, 213, 1);
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+            letter-spacing: 0;
+            text-align: left;
+
+            input {
+                display: none;
+            }
+        }
+
     }
 
     &__cards {
