@@ -1,9 +1,9 @@
 .filter {
     width: 1408px;
-    margin-bottom: 15px;
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
+    justify-content: flex-end;
 
     &__categories {
         width: 328px;
@@ -14,6 +14,7 @@
     }
 
     &__cards {
+        width: 1048px;
         margin-left: 32px;
         display: flex;
         flex-wrap: wrap;
@@ -45,6 +46,10 @@
                 text-align: left;
                 margin: 0;
             }
+        }
+        
+        .card:nth-child(3n) {
+            margin-right: 0;
         }
     }
 }
