@@ -18,6 +18,9 @@ export function Header(props) {
                     <div class="${getClassName("logo")}">
                         ${Logo({
                             imageSrc: "./images/logo.svg",
+                            extraAttrs: {
+                                "id": "logo"
+                            }
                         })}
                     </div>
                     <div class="${getClassName("nav")}">

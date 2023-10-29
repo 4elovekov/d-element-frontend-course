@@ -1,13 +1,23 @@
 export default class HeaderModel {
     
     constructor() {
-        if (!!HeaderModel.instance) {
+        if (HeaderModel.instance) {
             return HeaderModel.instance;
         }
 
-        this.node = document.querySelector("[data-js-header]");
+        HeaderModel.instance = document.querySelector("[data-js-header]");
+        this.logo = document.getElementById("logo");
+        console.debug(this.logo)
 
-        HeaderModel.instance = this;
-        return this;
+        this.init()
     }
+
+    logoClick() {
+        window.location.href = "./index.html";
+    }
+    
+    init() {
+        this.logo.addEventListener("click", this.logoClick)
+    }
+
 }
