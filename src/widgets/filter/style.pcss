@@ -1,6 +1,51 @@
 .filter {
+    width: 1408px;
     margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+
+    &__categories {
+        width: 328px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    &__cards {
+        margin-left: 32px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            padding: 20px;
+            margin: 0 32px 32px 0;
+            border-radius: 12px;
+            background: rgba(242, 243, 244, 1);
+
+            &__textBlock {
+                margin: 24px 0;
+            }
+
+            &__label {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0;
+                text-align: left;
+                margin: 0;
+            }
+
+            &__productName {
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 28px;
+                letter-spacing: 0;
+                text-align: left;
+                margin: 0;
+            }
+        }
+    }
 }
+

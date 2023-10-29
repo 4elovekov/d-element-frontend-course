@@ -37,19 +37,6 @@ export default () => {
         body: `
             ${Header()}
             <h1>Каталог</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/">Главная</a>
-                    </li>
-                    <li>
-                        <a href="/about.html">О Нас</a>
-                    </li>
-                    <li>
-                        <a href="/catalog.html">Каталог</a>
-                    </li>
-                </ul>
-            </nav>
             ${Filter({ category: cat })}
         `,
     })

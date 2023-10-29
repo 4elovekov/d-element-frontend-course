@@ -16,9 +16,5 @@ export function Filtering (params) {
         }
     })
 
-    console.debug("params in filtering: ", params)
-    console.debug("result in filtering: ", result)
-    console.debug("length of result: ", result.length)
     return result;
-    
 }

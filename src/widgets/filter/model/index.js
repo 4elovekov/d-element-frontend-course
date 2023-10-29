@@ -47,7 +47,7 @@ export default class FilterModel {
                     },
                     extraClasses: {
                         hidden: false,
-                        disabled: true,
+                        disabled: false,
                     }
                 })
             })
@@ -85,37 +85,11 @@ export default class FilterModel {
 
         this.getCards(this.url.stringUrl())
             .then(data => {
-                console.debug("Data from the API:", data);
                 this.cardParse(data)
             })
-
-        // fetch(this.url.stringUrl())
-        // .then((response) => {
-        //     return response.json();
-        // })
-        // .then((data) => {
-        //     console.debug("data: ", data)
-        //     data.forEach((card) => {
-        //         console.debug("data.card: ", card)
-        //         Card({
-        //             imageSrc: card.imageSrc,
-        //             label: card.label,
-        //             productName: card.productName,
-        //             children: AddToCart({
-        //                 extraAttrs: {
-        //                     "id": "btn"
-        //                 },
-        //                 extraClasses: {
-        //                     hidden: false,
-        //                     disabled: true,
-        //                 }
-        //             })
-        //         })
-        //     })
-        // })
-        .catch(error => {
-            console.error("Произошла ошибка:", error);
-        });
+            .catch(error => {
+                console.error("Произошла ошибка:", error);
+            });
     }
 
     init() {

@@ -32,7 +32,7 @@ export default () => {
                     },
                     extraClasses: {
                         hidden: false,
-                        disabled: true,
+                        disabled: false,
                     }
                 })}
             </div>
