@@ -33,13 +33,11 @@ export default class FilterModel {
         const oldCards = document.querySelectorAll(".card");
         oldCards.forEach(element => {
             element.remove();
-          });
+        });
 
+        let cardsHTML = ``
         cards.forEach((card) => {
-            console.debug("data.card: ", card)
-            const filterHTML = document.querySelector(".filter");
-            console.debug("filterhtml: ", filterHTML)
-            filterHTML.insertAdjacentHTML("afterbegin", Card({
+            cardsHTML += Card({
                 imageSrc: card.imageSrc,
                 label: card.label,
                 productName: card.productName,
@@ -52,8 +50,10 @@ export default class FilterModel {
                         disabled: true,
                     }
                 })
-            }))
+            })
         })
+        const newCards = document.querySelector(".filter__cards");
+        newCards.insertAdjacentHTML("afterbegin", cardsHTML);
     }
 
     async getCards(apiUrl) {
