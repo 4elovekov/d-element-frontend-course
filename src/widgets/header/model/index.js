@@ -7,7 +7,6 @@ export default class HeaderModel {
 
         HeaderModel.instance = document.querySelector("[data-js-header]");
         this.logo = document.getElementById("logo");
-        console.debug(this.logo)
 
         this.init()
     }
