@@ -29,6 +29,49 @@ export default class FilterModel {
         return checkbox.getAttribute(FilterModel.selectors.checkboxSelectors)
     }
 
+    cardParse(cards) {
+        const oldCards = document.querySelectorAll(".card");
+        oldCards.forEach(element => {
+            element.remove();
+          });
+
+        cards.forEach((card) => {
+            console.debug("data.card: ", card)
+            const filterHTML = document.querySelector(".filter");
+            console.debug("filterhtml: ", filterHTML)
+            filterHTML.insertAdjacentHTML("afterbegin", Card({
+                imageSrc: card.imageSrc,
+                label: card.label,
+                productName: card.productName,
+                children: AddToCart({
+                    extraAttrs: {
+                        "id": "btn"
+                    },
+                    extraClasses: {
+                        hidden: false,
+                        disabled: true,
+                    }
+                })
+            }))
+        })
+    }
+
+    async getCards(apiUrl) {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            return data;
+
+        } catch (error) {
+            console.error("Ошибка при работе с API:", error);
+            throw error;
+        }
+    }
+
     checkboxChanged() {
         this.inputs.forEach(input => {
             if (input.checked) {
@@ -40,32 +83,36 @@ export default class FilterModel {
             }
         })
 
-        fetch(this.url.stringUrl())
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.debug("data: ", data)
-            data.forEach((card) => {
-                console.debug("data.card: ", card)
-                Card({
-                    imageSrc: card.imageSrc,
-                    label: card.label,
-                    productName: card.productName,
-                    children: AddToCart({
-                        extraAttrs: {
-                            "id": "btn"
-                        },
-                        extraClasses: {
-                            hidden: false,
-                            disabled: true,
-                        }
-                    })
-                })
+        this.getCards(this.url.stringUrl())
+            .then(data => {
+                console.debug("Data from the API:", data);
+                this.cardParse(data)
             })
-            
 
-        })
+        // fetch(this.url.stringUrl())
+        // .then((response) => {
+        //     return response.json();
+        // })
+        // .then((data) => {
+        //     console.debug("data: ", data)
+        //     data.forEach((card) => {
+        //         console.debug("data.card: ", card)
+        //         Card({
+        //             imageSrc: card.imageSrc,
+        //             label: card.label,
+        //             productName: card.productName,
+        //             children: AddToCart({
+        //                 extraAttrs: {
+        //                     "id": "btn"
+        //                 },
+        //                 extraClasses: {
+        //                     hidden: false,
+        //                     disabled: true,
+        //                 }
+        //             })
+        //         })
+        //     })
+        // })
         .catch(error => {
             console.error("Произошла ошибка:", error);
         });
