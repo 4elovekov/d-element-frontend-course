@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
+    "swiper": "^11.0.3",
     "zustand": "^4.4.4"
   }
 }

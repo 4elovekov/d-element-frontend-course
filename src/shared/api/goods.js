@@ -2,7 +2,7 @@ export const goods = [
     {
         "data": {
             "idProduct": "1",
-            "label": "Бесплатный офлайн курс",
+            "label": "Платный офлайн курс",
             "productName": "«Frontend-разработчик»",
             "category": [ "front", "all" ],
             "imageSrc": "./images/Rectangle 3109.png",
@@ -18,7 +18,7 @@ export const goods = [
     {
         "data": {
             "idProduct": "2",
-            "label": "Бесплатный офлайн курс",
+            "label": "Платный офлайн курс",
             "productName": "«Backend-разработчик»",
             "category": [ "back", "all" ],
             "imageSrc": "./images/Rectangle 3108.png",
@@ -34,7 +34,7 @@ export const goods = [
     {
         "data": {
             "idProduct": "3",
-            "label": "Бесплатный офлайн курс",
+            "label": "Платный офлайн курс",
             "productName": "«Project manager»",
             "category": [ "manage", "all" ],
             "imageSrc": "./images/Rectangle 3108.png",
@@ -46,12 +46,11 @@ export const goods = [
             "price": 5000,
             "isPopular": true
         }
-    }
-    ,
+    },
     {
         "data": {
             "idProduct": "4",
-            "label": "Бесплатный офлайн курс",
+            "label": "Платный офлайн курс",
             "productName": "«Мобильная разработка»",
             "category": [ "mobile", "front", "back", "all" ],
             "imageSrc": "./images/Rectangle 3107.png",
@@ -67,7 +66,7 @@ export const goods = [
     {
         "data": {
             "idProduct": "5",
-            "label": "Бесплатный офлайн курс",
+            "label": "Платный офлайн курс",
             "productName": "«Web-разработчик»",
             "category": [ "front", "back", "all" ],
             "imageSrc": "./images/Mask group.png",
@@ -78,6 +77,54 @@ export const goods = [
             "startCourse": "26092023",
             "price": 5000,
             "isPopular": true
+        }
+    },
+    {
+        "data": {
+            "idProduct": "6",
+            "label": "Бесплатный онлайн курс",
+            "productName": "«1С-программирование»",
+            "category": [ "back", "all" ],
+            "imageSrc": "./images/Rectangle 3107.png",
+            "registration": {
+                    "startDate": "18082023",
+                    "endDate": "24092023"
+            },
+            "startCourse": "26092023",
+            "price": 1,
+            "isPopular": false
+        }
+    },
+    {
+        "data": {
+            "idProduct": "7",
+            "label": "Бесплатный онлайн курс",
+            "productName": "«HTML/CSS Верстальщик»",
+            "category": [ "front", "back", "all" ],
+            "imageSrc": "./images/Rectangle 3109.png",
+            "registration": {
+                    "startDate": "18082023",
+                    "endDate": "24092023"
+            },
+            "startCourse": "26092023",
+            "price": 1,
+            "isPopular": false
+        }
+    },
+    {
+        "data": {
+            "idProduct": "8",
+            "label": "Бесплатный онлайн курс",
+            "productName": "«Python разработчик»",
+            "category": [ "mobile", "back", "all" ],
+            "imageSrc": "./images/Rectangle 3109.png",
+            "registration": {
+                    "startDate": "18082023",
+                    "endDate": "24092023"
+            },
+            "startCourse": "26092023",
+            "price": 1,
+            "isPopular": false
         }
     }
 ]
