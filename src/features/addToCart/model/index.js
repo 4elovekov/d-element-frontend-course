@@ -1,3 +1,5 @@
+import myStore from "../../../shared/lib/zustandStore";
+
 export default class addToCartModel {
   static Selectors = {
     defaultBtnSelector: ".btn--inCart",
@@ -19,6 +21,24 @@ export default class addToCartModel {
     data.id.push(idProduct);
     localStorage.removeItem("idProduct");
     localStorage.setItem("idProduct", JSON.stringify(data))
+
+    const store = myStore;
+    const { getState, setState } = myStore;
+    console.debug(getState())
+    console.debug(setState(store))
+    console.debug(getState().bears)
+    //getState().increasePopulation()
+    console.debug(getState().bears)
+    getState().removeAllBears()
+    console.debug(getState().bears)
+    //getState().increasePopulation()
+    console.debug(getState().bears)
+    getState().addBears(2)
+    console.debug(getState().bears)
+    getState().addBears(5)
+    console.debug(getState().bears)
+    getState().addBears(10)
+    console.debug(getState().bears)
   }
 
   removeFromLocal(idProduct) {

@@ -1,7 +1,10 @@
-import { create } from "zustand";
+import { createStore } from "zustand/vanilla";
 
-export const useStore = create((set) => ({
-  idProduct: [],
-  addProduct: (item) =>
-    set((state) => ({ idProduct: [ ...state.idProduct, item ] })),
-}));
+const myStore = createStore((set) => ({
+  bears: [ 0 ],
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: [ 0 ] }),
+  addBears: (item) => set((state) => ({ bears: [ ...state.bears, item ] })),
+}))
+// [ ...state.bears, item ]
+export default myStore
