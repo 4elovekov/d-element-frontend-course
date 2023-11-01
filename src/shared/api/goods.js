@@ -100,7 +100,7 @@ export const goods = [
             "idProduct": "7",
             "label": "Бесплатный онлайн курс",
             "productName": "«HTML/CSS Верстальщик»",
-            "category": [ "front", "back", "all" ],
+            "category": [ "front", "all" ],
             "imageSrc": "./images/Rectangle 3109.png",
             "registration": {
                     "startDate": "18082023",

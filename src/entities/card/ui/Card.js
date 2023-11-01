@@ -10,13 +10,14 @@ export function Card(props) {
         imageSrc,
         label,
         productName,
+        idProduct,
         children
     } = { ...commonComponentProps, ...props }
 
     const getClassName = (elem, mod) => getCN(baseClass, elem, mod)
 
     return `
-            <div class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-card="" >
+            <div class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-card="" data-js-idProduct="${idProduct}">
                 <img src="${imageSrc}" class="${getClassName("image")}" alt="course"/>
                 <div class="${getClassName("textBlock")}">
                     <p class="${getClassName("label")}">${label}</p>

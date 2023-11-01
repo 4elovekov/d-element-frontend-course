@@ -1,4 +1,5 @@
 import Builder from "../../../shared/lib/builder"
+import addToCartModel from "../../../features/addToCart/model";
 import { Card } from "../../../entities/card/index.js"
 import { AddToCart } from "../../../features/addToCart/index.js";
 
@@ -58,11 +59,13 @@ export default class FilterModel {
                 imageSrc: card.imageSrc,
                 label: card.label,
                 productName: card.productName,
+                idProduct: card.idProduct,
                 children: AddToCart({
                     extraAttrs: {
-                        "id": "btn"
+                        "id": "btn",
                     },
                     extraClasses: {
+                        inCart: true,
                         hidden: false,
                         disabled: false,
                     }
@@ -95,10 +98,15 @@ export default class FilterModel {
         this.getCards(this.url.stringUrl())
             .then(data => {
                 this.cardParse(data)
+                this.runFeatures()
             })
             .catch(error => {
                 console.error("Произошла ошибка:", error);
             });
+    }
+
+    runFeatures = async() => {
+        new addToCartModel()
     }
 
     init() {
