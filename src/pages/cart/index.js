@@ -13,19 +13,7 @@ export default () => {
                 <div class="container">
                     <h1>Корзина</h1>
                 </div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/">Главная</a>
-                        </li>
-                        <li>
-                            <a href="/cart.html">Корзина</a>
-                        </li>
-                        <li>
-                            <a href="/catalog.html">Каталог</a>
-                        </li>
-                    </ul>
-                </nav>
+
             </main>
             ${Footer()}
         `,
