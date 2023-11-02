@@ -1,4 +1,4 @@
-import myStore from "../../../shared/lib/zustandStore";
+import myStore from "../../../shared/config/zustandStore";
 
 export default class addToCartModel {
   static Selectors = {
@@ -7,11 +7,7 @@ export default class addToCartModel {
   };
 
   constructor() {
-    this.btns = Array.from(
-      document.querySelectorAll(
-        `${addToCartModel.Selectors.defaultBtnSelector}`
-      )
-    );
+    this.btns = Array.from(document.querySelectorAll(`${addToCartModel.Selectors.defaultBtnSelector}`));
     this.init();
   }
 
@@ -24,14 +20,7 @@ export default class addToCartModel {
     }
   }
 
-  addToLocal(idProduct) {
-    const data = JSON.parse(localStorage.getItem("idProduct"));
-    if (data.id.indexOf(idProduct) == -1) {
-      data.id.push(idProduct);
-    }
-    localStorage.removeItem("idProduct");
-    localStorage.setItem("idProduct", JSON.stringify(data))
-
+  addToZus(idProduct) {
     const { getState } = myStore;
     if (!this.isInZus(getState().ids, Number(idProduct))) {
       getState().addId(Number(idProduct))
@@ -39,13 +28,7 @@ export default class addToCartModel {
     console.debug(getState().ids)
   }
 
-  removeFromLocal(idProduct) {
-    const data = JSON.parse(localStorage.getItem("idProduct"));
-    const indexToRemove = data.id.indexOf(idProduct);
-    data.id.splice(indexToRemove, 1);
-    localStorage.removeItem("idProduct");
-    localStorage.setItem("idProduct", JSON.stringify(data))
-
+  removeFromZus(idProduct) {
     const { getState } = myStore;
     const index = this.isInZus(getState().ids, Number(idProduct));
     if (index) {
@@ -54,7 +37,7 @@ export default class addToCartModel {
     console.debug(getState().ids)
   }
 
-  clickedCheck(btn) {
+  isClicked(btn) {
     if (btn.getAttribute("data-js-addtocart-btn") == "clicked") {
       btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "");
       btn.querySelector(".btn__label").textContent = "В корзину";
@@ -70,10 +53,10 @@ export default class addToCartModel {
     const btn = event.target.closest("[data-js-addtocart-btn]")
     const card = event.target.closest("[data-js-card]");
     const idProduct = card.getAttribute("data-js-idproduct");
-    if (this.clickedCheck(btn)) {
-      this.removeFromLocal(idProduct)
+    if (this.isClicked(btn)) {
+      this.removeFromZus(idProduct)
     } else {
-      this.addToLocal(idProduct);
+      this.addToZus(idProduct);
     }
     console.debug("local in clickHandler: ", localStorage.getItem("idProduct"))
   }
@@ -86,20 +69,22 @@ export default class addToCartModel {
     });
   }
 
-  init() {
+  pageLoad(btn, idProduct) {
     const { getState } = myStore;
+    if (!this.isInZus(getState().ids, Number(idProduct)) == false) {
+      btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
+      btn.querySelector(".btn__label").textContent = "Удалить из корзины";
+      
+    }
+  }
+
+  init() {
     this.addListeningAttribute(this.btns)
     this.clickHandler = this.clickHandler.bind(this);
     this.btns.forEach((btn) => {
       const card = btn.closest("[data-js-card]");
       const idProduct = card.getAttribute("data-js-idproduct");
-      if (!this.isInZus(getState().ids, Number(idProduct)) == false) {
-        btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
-        btn.querySelector(".btn__label").textContent = "Удалить из корзины";
-      } else if (JSON.parse(localStorage.getItem("idProduct")).id.indexOf(idProduct) !== -1) {
-        btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
-        btn.querySelector(".btn__label").textContent = "Удалить из корзины";
-      }
+      this.pageLoad(btn, idProduct);
       btn.addEventListener("click", this.clickHandler);
     });
   }
