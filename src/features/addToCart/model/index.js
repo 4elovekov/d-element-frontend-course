@@ -16,29 +16,26 @@ export default class addToCartModel {
     this.init();
   }
 
+  isInZus(arr, num) {
+    const index = arr.indexOf(num);
+    if (index !== -1) {
+      return index
+    } else {
+      return false
+    }
+  }
+
   addToLocal(idProduct) {
     const data = JSON.parse(localStorage.getItem("idProduct"));
     data.id.push(idProduct);
     localStorage.removeItem("idProduct");
     localStorage.setItem("idProduct", JSON.stringify(data))
 
-    const store = myStore;
-    const { getState, setState } = myStore;
-    console.debug(getState())
-    console.debug(setState(store))
-    console.debug(getState().bears)
-    //getState().increasePopulation()
-    console.debug(getState().bears)
-    getState().removeAllBears()
-    console.debug(getState().bears)
-    //getState().increasePopulation()
-    console.debug(getState().bears)
-    getState().addBears(2)
-    console.debug(getState().bears)
-    getState().addBears(5)
-    console.debug(getState().bears)
-    getState().addBears(10)
-    console.debug(getState().bears)
+    const { getState } = myStore;
+    if (!this.isInZus(getState().ids, Number(idProduct))) {
+      getState().addId(Number(idProduct))
+    }
+    console.debug(getState().ids)
   }
 
   removeFromLocal(idProduct) {
@@ -47,6 +44,13 @@ export default class addToCartModel {
     data.id.splice(indexToRemove, 1);
     localStorage.removeItem("idProduct");
     localStorage.setItem("idProduct", JSON.stringify(data))
+
+    const { getState } = myStore;
+    const index = this.isInZus(getState().ids, Number(idProduct));
+    if (index) {
+      getState().removeId(index);
+    }
+    console.debug(getState().ids)
   }
 
   clickedCheck(btn) {
