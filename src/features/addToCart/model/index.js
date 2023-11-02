@@ -96,6 +96,9 @@ export default class addToCartModel {
       if (!this.isInZus(getState().ids, Number(idProduct)) == false) {
         btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
         btn.querySelector(".btn__label").textContent = "Удалить из корзины";
+      } else if (JSON.parse(localStorage.getItem("idProduct")).id.indexOf(idProduct) !== -1) {
+        btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
+        btn.querySelector(".btn__label").textContent = "Удалить из корзины";
       }
       btn.addEventListener("click", this.clickHandler);
     });
