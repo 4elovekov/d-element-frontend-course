@@ -12,7 +12,6 @@ export default class addToCartModel {
         `${addToCartModel.Selectors.defaultBtnSelector}`
       )
     );
-
     this.init();
   }
 
@@ -27,7 +26,9 @@ export default class addToCartModel {
 
   addToLocal(idProduct) {
     const data = JSON.parse(localStorage.getItem("idProduct"));
-    data.id.push(idProduct);
+    if (data.id.indexOf(idProduct) == -1) {
+      data.id.push(idProduct);
+    }
     localStorage.removeItem("idProduct");
     localStorage.setItem("idProduct", JSON.stringify(data))
 
@@ -86,11 +87,16 @@ export default class addToCartModel {
   }
 
   init() {
-    const emptyLocal = { "id": [ "0" ] }
-    localStorage.setItem("idProduct", JSON.stringify(emptyLocal))
+    const { getState } = myStore;
     this.addListeningAttribute(this.btns)
     this.clickHandler = this.clickHandler.bind(this);
     this.btns.forEach((btn) => {
+      const card = btn.closest("[data-js-card]");
+      const idProduct = card.getAttribute("data-js-idproduct");
+      if (!this.isInZus(getState().ids, Number(idProduct)) == false) {
+        btn.setAttribute(addToCartModel.Selectors.listeningBtnSelector, "clicked");
+        btn.querySelector(".btn__label").textContent = "Удалить из корзины";
+      }
       btn.addEventListener("click", this.clickHandler);
     });
   }

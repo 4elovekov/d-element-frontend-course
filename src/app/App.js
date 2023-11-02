@@ -15,6 +15,8 @@ const runApp = async () => {
                 .then(async ({ worker }) => {
                     await worker.start().then(() => {
                         console.debug("App dev run")
+                        // const emptyLocal = { "id": [ "0" ] }
+                        // localStorage.setItem("idProduct", JSON.stringify(emptyLocal))
                         runWidgets()
                     })
                 })
