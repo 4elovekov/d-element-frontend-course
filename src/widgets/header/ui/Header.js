@@ -27,7 +27,9 @@ export function Header(props) {
                         <a href="/">ГЛАВНАЯ</a>
                         <a href="/catalog.html">КАТАЛОГ</a>
                         <a href="/cart.html">
-                        <img src="./images/Shopping cart.svg">Корзина</a>
+                            <img src="./images/Shopping cart.svg">
+                            Корзина
+                        </a>
                     </div>
                 </div>
             </header>
