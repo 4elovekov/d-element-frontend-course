@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Proxima Nova Bd';
+    src: url('/fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Rg';
+    src: url('/fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Sb';
+    src: url('/fonts/ProximaNova-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.card {
+
+    &--small {
+        width: 920px;
+        height: 144px;
+        background: rgba(242, 243, 244, 1);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &--small > img {
+        width: 188px;
+        height: 144px;
+    }
+
+    &--small > img:last-child {
+        position: relative;
+        left: 232px;
+        top: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    &--small > &__textBlock {
+        margin-left: 32px;
+        height: 144px;
+    }
+
+    &--small > &__textBlock > &__title {
+        margin-bottom: 20px;
+    }
+
+    &--small > &__textBlock > &__title > &__label{
+        font-family: "Proxima Nova Rg", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: left;
+        margin-bottom: 4px;
+    }
+
+    &--small > &__textBlock > &__title > &__productName{
+        font-family: "Proxima Nova Bd", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0;
+        text-align: left;
+        margin: 0;
+    }
+
+    &--small > &__textBlock > &__dates > &__registration {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        font-family: "Proxima Nova Sb", sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: 0;
+        text-align: left;
+        color: rgba(28, 108, 213, 1);
+
+    }
+
+    &--small > &__textBlock > &__dates > &__registration > p:first-child {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        color: rgba(34, 34, 34, 1);
+
+    }
+
+    &--small > &__textBlock > &__dates > &__startCourse {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        font-family: "Proxima Nova Sb", sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: 0;
+        text-align: left;
+        color: rgba(28, 108, 213, 1);
+
+    }
+
+    &--small > &__textBlock > &__dates > &__startCourse > p:first-child {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        color: rgba(34, 34, 34, 1);
+
+    }
+
+}

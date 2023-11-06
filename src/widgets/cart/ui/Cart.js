@@ -14,13 +14,13 @@ export function Cart(props) {
     return `
             <section class="${getClassName("", extraClasses)}" ${getAttrs(extraAttrs)} data-js-cart="" >
                 <div class="${getClassName("", "cards")}"></div>
-                <form class="${getClassName("", "form")}">
+                <div class="${getClassName("", "form")}">
                     <h3 class="${getClassName("", "title")}">Итого</h3>
 
                     <div class="${getClassName("", "info")}">
                         <div class="${getClassName("", "products")}">
-                            <p class="${getClassName("", "quantity")}"></p>
-                            <p class="${getClassName("", "amount")}"></p>
+                            <p class="${getClassName("", "quantity")}">3 товара</p>
+                            <p class="${getClassName("", "amount")}">24 000 ₽</p>
                         </div>
                         <div class="${getClassName("", "promo")}">
                             <label>Промокод</label>
@@ -29,16 +29,13 @@ export function Cart(props) {
                         <img src="/images/Line 16.svg">
                         <div class="${getClassName("", "total")}">
                             <p class="${getClassName("", "sum")}">Итоговая сумма</p>
-                            <p class="${getClassName("", "price")}"></p>
+                            <p class="${getClassName("", "price")}">24 000 ₽</p>
                         </div>
                     </div>
 
                     <button>Оформить заказ</button>
-                </form>
-                <a href="javascript:history.go(-1)">
-                    <img src="/images/Arrow left blue.svg">
-                    Продолжить покупки
-                </a>
+                </div>
+                <a href="javascript:history.go(-1)"><img src="/images/Arrow left blue.svg">Продолжить покупки</a>
             </section>
             `
 } 
