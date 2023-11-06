@@ -24,7 +24,7 @@ export function Cart(props) {
                         </div>
                         <div class="${getClassName("", "promo")}">
                             <label>Промокод</label>
-                            <input type="text" placeholder="Введите промокод"></input>
+                            <input type="text" id="promoInput" placeholder="Введите промокод"></input>
                         </div>
                         <img src="/images/Line 16.svg">
                         <div class="${getClassName("", "total")}">

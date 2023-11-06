@@ -27,7 +27,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 5000,
+            "price": 6000,
             "isPopular": true
         }
     },
@@ -43,7 +43,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 5000,
+            "price": 4000,
             "isPopular": true
         }
     },
@@ -59,7 +59,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 5000,
+            "price": 8000,
             "isPopular": true
         }
     },
@@ -75,7 +75,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 5000,
+            "price": 7000,
             "isPopular": true
         }
     },
@@ -91,7 +91,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 1,
+            "price": 100,
             "isPopular": false
         }
     },
@@ -107,7 +107,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 1,
+            "price": 100,
             "isPopular": false
         }
     },
@@ -123,7 +123,7 @@ export const goods = [
                     "endDate": "24092023"
             },
             "startCourse": "26092023",
-            "price": 1,
+            "price": 100,
             "isPopular": false
         }
     }
