@@ -1,0 +1,108 @@
+.filter {
+    min-height: 454px;
+    width: 1408px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    &__categories {
+        width: 328px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        label[checked] {
+            background: #1C6CD5;
+            color: #FFF;
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 52px;
+            margin-bottom: 8px;
+            padding: 0 24px 0 24px;
+            border-radius: 100px;
+            gap: 10px;
+            background: #D7E8FF;
+            color: #1C6CD5;
+            font-family: "Proxima Nova Sb", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 28px;
+            letter-spacing: 0;
+            text-align: left;
+            cursor: pointer;
+
+            input {
+                display: none;
+            }
+        }
+
+        label:hover {
+            background: #094593;
+            color: #FFF;
+        }
+
+    }
+
+    &__cards {
+        width: 1048px;
+        margin-left: 32px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            padding: 20px;
+            margin: 0 32px 32px 0;
+            border-radius: 12px;
+            background: rgba(242, 243, 244, 1);
+
+            &__textBlock {
+                margin: 24px 0;
+
+                .btn {
+
+                    &__label {
+                    font-family: "Proxima Nova Bd", sans-serif;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 24px;
+                    letter-spacing: 0;
+                    text-align: left;
+                    }
+                }
+            }
+
+            &__label {
+                font-family: "Proxima Nova Rg", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0;
+                text-align: left;
+                margin: 0;
+                color: rgba(11, 16, 20, 1);
+            }
+
+            &__productName {
+                font-family: "Proxima Nova Bd", sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 28px;
+                letter-spacing: 0;
+                text-align: left;
+                margin: 0;
+                color: rgba(11, 16, 20, 1);
+            }
+        }
+        
+        .card:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+}
+
