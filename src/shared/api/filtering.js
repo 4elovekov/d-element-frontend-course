@@ -1,4 +1,4 @@
-import { goods } from "./goods";
+import { goods } from "./consts/goods";
 
 export function Filtering (params) {
     params = params.slice(1).split("&");

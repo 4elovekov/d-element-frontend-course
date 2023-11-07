@@ -1,5 +1,5 @@
 import myStore from "../config/zustandStore";
-import { goods } from "./goods";
+import { goods } from "./consts/goods";
 
 export function GetCart () {
     const { getState } = myStore;

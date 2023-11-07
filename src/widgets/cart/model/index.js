@@ -31,6 +31,31 @@ export default class CartModel {
         }
     }
 
+    async makeOrder(promoText, productIds) {
+        try {
+            const response = await fetch("http://localhost:5173/cart.html/makeorder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    promo: promoText,
+                    ids: productIds
+                }),
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }      
+
+            const data = await response.json();
+            return data;
+
+        } catch (error) {
+            console.error("Ошибка при работе с API:", error);
+            throw error;
+        }
+    }
+
     async checkPromo(promoText) {
         try {
             const response = await fetch("http://localhost:5173/cart.html", {
@@ -120,6 +145,16 @@ export default class CartModel {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
+    changeCase(number, word) {
+        if (number % 10 === 1 && number % 100 !== 11) {
+            return `${number} ${word}`;
+        } else if ([ 2, 3, 4 ].includes(number % 10) && ![ 12, 13, 14 ].includes(number % 100)) {
+            return `${number} ${word}а`;
+        } else {
+            return `${number} ${word}ов`;
+        }
+    }
+
     deleteClickHandler(event) {
         const { getState } = myStore;
         const card = event.target.closest("[data-js-card]");
@@ -151,13 +186,7 @@ export default class CartModel {
         const product = "товар";
         priceBeforePromo.textContent = `${this.thousandSeparator(price)} ₽`
         priceAfterPromo.textContent = `${this.thousandSeparator(price)} ₽`
-        if (count % 10 === 1 && count % 100 !== 11) {
-            quantity.textContent = `${count} ${product}`;
-        } else if ([ 2, 3, 4 ].includes(count % 10) && ![ 12, 13, 14 ].includes(count % 100)) {
-            quantity.textContent = `${count} ${product}а`;
-        } else {
-            quantity.textContent = `${count} ${product}ов`;
-        }
+        quantity.textContent = this.changeCase(count, product)
     }
 
     blurInputHandler(event) {
@@ -199,10 +228,8 @@ export default class CartModel {
             const priceBefore = document.querySelector(".cart__amount");
             const priceAfter = document.querySelector(".cart__price");
             let text = priceBefore.textContent;
-            console.debug("text: ", text)
             text = text.replace(/ /g, "")
             text = text.replace("₽", "")
-            console.debug(text)
             text = Number(text) - Number(text) * Number(res.percentage) / 100;
             priceAfter.textContent = `${this.thousandSeparator(text)} ₽`
             priceAfter.style.color = "green"
@@ -220,12 +247,52 @@ export default class CartModel {
         }
     }
 
+    makeOrderClickHandler() {
+        const cardsIdsArr = [ ];
+        const promo = document.getElementById("promoInput").value ? document.getElementById("promoInput").value : null
+        const cardsArr = Array.from(document.querySelectorAll("[data-js-card]"))
+        cardsArr.forEach((card) => {
+            cardsIdsArr.push(card.getAttribute("data-js-idproduct"))
+        })
+        this.makeOrder(promo, cardsIdsArr)
+            .then(data => {
+                if (data.isSuccess) {
+                    if (window.confirm(`Вы хотите купить ${this.changeCase(data.count, "товар")} общей стоимостью ${data.price} ₽
+${data.isPromoAvailable ? `Скидка уже включена в стоимость и составит ${data.price / 9} ₽` : `Скидка уже включена в стоимость и составит 0 ₽` }`)) {
+                        window.alert("Заказ оформлен!");
+                        const deleteImages = Array.from(document.querySelectorAll(".card__delete"));
+                        console.debug(deleteImages)
+                        deleteImages.forEach((img) => {
+                            console.debug(img)
+                            img.dispatchEvent(new Event("click"));
+                            const input = document.getElementById("promoInput")
+                            input.value = ""
+                            input.dispatchEvent(new Event("blur"))
+                        })
+                    }
+                } else {
+                    window.alert("Невозможно оформить заказ\nСкорее всего вы не добавили в корзину ни одного товара")
+                }
+            })
+            .catch(error => {
+                console.error("Произошла ошибка:", error);
+            });
+
+
+    }
+
     init() {
         this.promoAftereffect = this.promoAftereffect.bind(this);
         this.blurInputHandler = this.blurInputHandler.bind(this);
+        this.makeOrderClickHandler = this.makeOrderClickHandler.bind(this);
         this.calcPrice = this.calcPrice.bind(this);
+
         const input = document.getElementById("promoInput");
+        const makeOrder = document.querySelector(".btn--order");
+
+        makeOrder.addEventListener("click", this.makeOrderClickHandler)
         input.addEventListener("blur", this.blurInputHandler);
+
         this.getCards()
             .then(data => {
                 this.parseCards(data)

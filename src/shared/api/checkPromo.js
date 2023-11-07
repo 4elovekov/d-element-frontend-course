@@ -1,4 +1,4 @@
-import { promos } from "./promos";
+import { promos } from "./consts/promos";
 
 export function checking (promo) {
     if (promos.promo.includes(promo)) {

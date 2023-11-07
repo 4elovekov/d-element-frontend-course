@@ -2,6 +2,7 @@ import { rest } from "msw"
 import { Filtering } from "./filtering"
 import { GetCart } from "./getCart"
 import { checking } from "./checkPromo"
+import { makeOrderCheck } from "./makeOrderCheck"
 
 export const handlers = [
 
@@ -32,6 +33,28 @@ export const handlers = [
       return res(
         ctx.status(200), ctx.json({
           isPromoAvailable: false
+        })
+      )
+    }
+  }),
+
+  rest.post("/cart.html/makeorder", (req, res, ctx) => {
+    const requestBody = req.body;
+    const checkingResult = makeOrderCheck(requestBody.promo, requestBody.ids);
+    if (checkingResult != false) {
+      return res(
+        ctx.status(200), ctx.json({
+          isSuccess: true,
+          isPromoAvailable: checkingResult.isPromoAvailable,
+          count: checkingResult.count,
+          price: checkingResult.price,
+          percentage: checkingResult.percentage
+        })
+      )
+    } else {
+      return res(
+        ctx.status(200), ctx.json({
+          isSuccess: false,
         })
       )
     }

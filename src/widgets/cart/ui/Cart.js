@@ -1,4 +1,5 @@
 import { commonComponentProps, getAttrs } from "../../../shared/lib";
+import { Button } from "../../../shared/ui/button/index.js"
 
 export function Cart(props) {
 
@@ -32,8 +33,13 @@ export function Cart(props) {
                             <p class="${getClassName("", "price")}">24 000 ₽</p>
                         </div>
                     </div>
-
-                    <button>Оформить заказ</button>
+                    ${Button({
+                        label: "Оформить заказ",
+                        extraClasses: {
+                            order: true,
+                        }
+                    })}
+                    
                 </div>
                 <a href="javascript:history.go(-1)"><img src="/images/Arrow left blue.svg">Продолжить покупки</a>
             </section>
