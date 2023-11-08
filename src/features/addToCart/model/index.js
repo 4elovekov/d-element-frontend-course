@@ -25,7 +25,6 @@ export default class addToCartModel {
     if (!this.isInZus(getState().ids, Number(idProduct))) {
       getState().addId(Number(idProduct))
     }
-    console.debug(getState().ids)
   }
 
   removeFromZus(idProduct) {
@@ -34,7 +33,6 @@ export default class addToCartModel {
     if (index) {
       getState().removeId(index);
     }
-    console.debug(getState().ids)
   }
 
   isClicked(btn) {
@@ -58,7 +56,6 @@ export default class addToCartModel {
     } else {
       this.addToZus(idProduct);
     }
-    console.debug("local in clickHandler: ", localStorage.getItem("idProduct"))
   }
 
   addListeningAttribute(btns) {

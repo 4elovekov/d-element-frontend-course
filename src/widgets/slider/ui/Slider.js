@@ -15,18 +15,14 @@ export function Slider() {
     return `
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="/images/Rectangle 3107.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/images/Rectangle 3108.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="/images/Rectangle 3109.png">
-                </div>
+
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-buttonNext">
+                <img src="/images/Arrow right black.svg">
+            </div>
+            <div class="swiper-buttonPrev">
+                <img src="/images/Arrow left black.svg">
+            </div>
         </div>
         </div>
         `

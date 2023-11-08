@@ -3,6 +3,7 @@ import { Filtering } from "./filtering"
 import { GetCart } from "./getCart"
 import { checking } from "./checkPromo"
 import { makeOrderCheck } from "./makeOrderCheck"
+import { isPopular } from "./isPopular"
 
 export const handlers = [
 
@@ -58,6 +59,12 @@ export const handlers = [
         })
       )
     }
+  }),
+
+  rest.get("/index.html", (req, res, ctx) => {
+    return res(
+      ctx.status(200), ctx.json(isPopular())
+    )
   }),
 
   // rest.post("/login", (req, res, ctx) => {

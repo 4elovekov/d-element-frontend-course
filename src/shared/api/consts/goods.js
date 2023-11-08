@@ -92,7 +92,7 @@ export const goods = [
             },
             "startCourse": "26092023",
             "price": 100,
-            "isPopular": false
+            "isPopular": true
         }
     },
     {
@@ -108,7 +108,7 @@ export const goods = [
             },
             "startCourse": "26092023",
             "price": 100,
-            "isPopular": false
+            "isPopular": true
         }
     },
     {
@@ -124,7 +124,7 @@ export const goods = [
             },
             "startCourse": "26092023",
             "price": 100,
-            "isPopular": false
+            "isPopular": true
         }
     }
 ]
