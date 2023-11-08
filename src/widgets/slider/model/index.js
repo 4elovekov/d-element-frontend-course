@@ -34,7 +34,7 @@ export default class SliderModel {
     new addToCartModel()
   }
 
-  async getCards() {
+  async getCards() {  
     try {
         const response = await fetch("http://localhost:5173/index.html");
         if (!response.ok) {
