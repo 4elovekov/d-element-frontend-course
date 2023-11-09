@@ -15,7 +15,7 @@ export default () => {
                     <h1>Популярные товары</h1>
                 </div>
                 ${Slider()}
-                <div class="container">
+                <div class="information">
                     <div class="about">
                         <h2>О нас</h2>
                         <div class="about__textBlock">
