@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Proxima Nova Rg';
+    src: url('/fonts/ProximaNova-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  @font-face {
+    font-family: 'Proxima Nova Sb';
+    src: url('/fonts/ProximaNova-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+  @font-face {
+    font-family: 'Proxima Nova Bd';
+    src: url('/fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+
+    > img {
+        position: absolute;
+        width: 1192px;
+        height: 1192px;
+        top: 280px;
+        left: 750px;
+        rotate: 0deg;
+        z-index: -1;
+    }
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    width: 688px;
+    height: 380px;
+
+    > h2 {
+        font-family: "Proxima Nova Bd", sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: 0;
+        text-align: left;
+        margin: 0 0 40px 0;
+
+    }
+
+    &__textBlock {
+        width: 568px;
+
+        > label {
+            font-family: "Proxima Nova Bd", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 0;
+            text-align: left;
+            color: #1C6CD5;
+
+        }
+
+        > p {
+            font-family: "Proxima Nova Rg", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0;
+            text-align: left;
+            margin: 16px 0 36px 0;
+
+        }
+    }
+
+}
+
+.howTo {
+
+    > h2 {
+        font-family: "Proxima Nova Bd", sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: 0;
+        text-align: left;
+        margin: 0 0 24px 0;
+
+    }
+
+    &__qrBlock {
+        background: #FFF;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        width: 608px;
+        height: 136px;
+        padding: 40px 40px 53px 40px;
+
+        > img {
+            width: 153px;
+            height: 149px;
+            margin: 0 0 0 32px;
+        }
+    }
+
+    &__textBlock {
+        height: 136px;
+
+        > p {
+            font-family: "Proxima Nova Bd", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 28px;
+            letter-spacing: 0;
+            text-align: left;
+            width: 423px;
+            height: 84px;
+            margin: 0 0 16px 0;
+
+        }
+
+        > label {
+            font-family: "Proxima Nova Bd", sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 36px;
+            letter-spacing: 0;
+            text-align: left;
+            width: 423px;
+            color: rgba(28, 108, 213, 1);
+
+        }
+
+    }
+}

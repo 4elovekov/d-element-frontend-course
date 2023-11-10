@@ -1,0 +1,62 @@
+.swiper {
+    height: 412px;
+    /* max-width: 500px; */
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    overflow: visible;
+
+  &-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 328px;
+  }
+
+  &-slide img {
+    display: block;
+    object-fit: cover;
+  }
+
+  &-buttonNext {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: -92px;
+    right: 224px;
+    z-index: 1;
+    transition: box-shadow 0.25s;
+  }
+
+  &-buttonNext:hover {
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &-buttonPrev {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: -92px;
+    right: 304px;
+    z-index: 1;
+    transition: box-shadow 0.25s;
+  }
+
+  &-buttonPrev:hover {
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+  }
+}

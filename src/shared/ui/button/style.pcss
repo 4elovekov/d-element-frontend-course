@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Proxima Nova Bd';
+    src: url('/fonts/ProximaNova-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+button {
+    font-family: "Proxima Nova Bd", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px 12px 24px;
+    border-radius: 10px;
+    gap: 10px;
+    background: rgba(28, 108, 213, 1);
+    box-shadow: -3px 3px 15px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    transition: background 0.25s;
+}
+
+button:hover {
+    background: rgba(9, 69, 147, 1);
+}
+
+button:focus,
+button:focus-visible {
+    outline: 2px auto -webkit-focus-ring-color;
+}
+
+.btn {
+    
+    &--disabled {
+        background: rgba(187, 193, 213, 1);
+    }
+}
+
+[data-js-addtocart-btn="clicked"] {
+    background: rgba(187, 193, 213, 1);
+}
